@@ -157,12 +157,40 @@ const data={
       }
     ]
   }
-  
-  function setCards() {
+
+//Date.parse
+/* const date = data.fechaActual;
+const dateToParse = Date.parse(date);
+console.log("date:", date);
+console.log("dateToParse:", dateToParse);  */
+
+//Date convertion:
+//1 Date to convert
+//2 Split
+//3 Convert to Date 
+//4 Convert to timestamp gettime
+const dateToCompare = data.fechaActual;
+console.log(dateToCompare);
+const dateSplit = dateToCompare.split("-");
+console.log(dateSplit);
+const dateToCompareParsed = new Date(dateSplit[0], dateSplit[1]-1, dateSplit[2]);
+console.log(dateToCompareParsed);
+const dateTimeStamp = dateToCompareParsed.getTime();
+console.log(dateTimeStamp);
+
+function setCards() {
     let card = ``;
     const settingCard = document.getElementById("cards");
+    let dateEventToCompare; 
+    let dateEventSplit; 
+    let dateEventParsed;
+    let dateEventTimeStamp; 
     for (let i=0; i < data.eventos.length; i++) {
-        if (data.fechaActual < data.eventos[i].date) {
+        dateEventToCompare = data.eventos[i].date;
+        dateEventSplit = dateEventToCompare.split("-");
+        dateEventParsed = new Date(dateEventSplit[0],dateEventSplit[1]-1,dateEventSplit[2]);
+        dateEventTimeStamp = dateEventParsed.getTime();
+        if (dateTimeStamp < dateEventTimeStamp) {
           card += `
           <div class="card" style="width: 18rem;">
                 <div class="image-card-container">
@@ -181,5 +209,7 @@ const data={
         }
     } 
     settingCard.innerHTML = card;
-  }
-  setCards();
+}
+setCards();
+
+
