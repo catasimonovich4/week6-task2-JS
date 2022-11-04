@@ -59,6 +59,15 @@ h1 {
     font-weight: bold;
 } 
 
+.next-page {
+    color: #242038;
+    text-decoration: none;
+}
+
+.next-page:hover {
+    color: #a80350;
+}
+
 .search-container {
     display: flex;
     justify-content: space-between;
@@ -190,7 +199,6 @@ footer > span {
     align-items: center;
     width: 100%;
     padding: 2%;
-    margin-top: 3%;
     color:#a80350;
     border-radius: 10px;
 }
@@ -271,7 +279,7 @@ textarea {
 
 .table-container {
     width: 80%;
-    margin: 3% 0%;
+    margin-top: 2%;
     padding: 2%;
     border-radius: 10px;
     background-color: white;
@@ -389,8 +397,12 @@ td {
     }
 
     .detail-card-container {
-        width: 90%;
-        margin-top: 8%;
+        width: 75%;
+        margin-top: 2%;
+    }
+
+    .detail-info-container {
+        padding-left: 0;
     }
 
 }
@@ -411,6 +423,26 @@ td {
     #navbarSupportedContent{
     display: block;
     }
+
+    .detail-card-container {
+        width: 90%;
+    }
+
+    .img-detail-container {
+        width: 50%;
+        padding: 5%;
+    }
+
+    .img-detail-container > img {
+        height: 100%;
+        width: 100%;
+        
+    }
+
+    .detail-info-container {
+        padding-left: 0;
+    }
+
 }
 
 @media only screen and (max-width:992px) {

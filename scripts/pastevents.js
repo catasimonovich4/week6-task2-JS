@@ -201,7 +201,8 @@ function setCards() {
             </div>
           `;
         }  
-      }
+    }
     settingCard.innerHTML = card;
 }
+
 setCards();
