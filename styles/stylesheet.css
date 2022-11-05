@@ -131,7 +131,11 @@ input[type=text] {
 
 .card {
     margin: 1.5%;
-    height: 55vh;
+    height: 50vh;
+}
+
+.card-title {
+    margin-bottom: 1%;
 }
 
 .card-body {

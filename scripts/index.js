@@ -169,7 +169,7 @@ const data={
                 </div>
                 <div class="card-body">
                   <h5 class="card-title">${data.eventos[i].name}</h5>
-                  <p class="card-text">${data.eventos[i].description}</p>
+                  <p class="card-text" style="overflow:auto; height:8vh">${data.eventos[i].description}</p>
                 </div>
                 <div class="bottom-card"> 
                     <span>Price: $${data.eventos[i].price}</span>

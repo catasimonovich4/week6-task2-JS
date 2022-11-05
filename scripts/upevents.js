@@ -178,34 +178,38 @@ console.log(dateToCompareParsed);
 const dateTimeStamp = dateToCompareParsed.getTime();
 console.log(dateTimeStamp);
 
+function dateConvert(event) {
+  let dateEventToCompare; 
+  let dateEventSplit; 
+  let dateEventParsed;
+  let dateEventTimeStamp; 
+  dateEventToCompare = data.eventos[event].date;
+  dateEventSplit = dateEventToCompare.split("-");
+  dateEventParsed = new Date(dateEventSplit[0],dateEventSplit[1]-1,dateEventSplit[2]);
+  dateEventTimeStamp = dateEventParsed.getTime();
+  return dateEventTimeStamp;
+}
+
 function setCards() {
     let card = ``;
     const settingCard = document.getElementById("cards");
-    let dateEventToCompare; 
-    let dateEventSplit; 
-    let dateEventParsed;
-    let dateEventTimeStamp; 
     for (let i=0; i < data.eventos.length; i++) {
-        dateEventToCompare = data.eventos[i].date;
-        dateEventSplit = dateEventToCompare.split("-");
-        dateEventParsed = new Date(dateEventSplit[0],dateEventSplit[1]-1,dateEventSplit[2]);
-        dateEventTimeStamp = dateEventParsed.getTime();
-        if (dateTimeStamp < dateEventTimeStamp) {
-          card += `
+      if (dateTimeStamp < dateConvert(i)) {
+        card += `
           <div class="card" style="width: 18rem;">
-                <div class="image-card-container">
-                    <img src="${data.eventos[i].image}" class="card-img-top" alt="food fair">
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">${data.eventos[i].name}</h5>
-                    <p class="card-text">${data.eventos[i].description}</p>
-                </div>
-                <div class="bottom-card"> 
-                    <span>Price: $${data.eventos[i].price}</span>
-                    <a href="./pages/details.html" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-          `;
+            <div class="image-card-container">
+              <img src="${data.eventos[i].image}" class="card-img-top" alt="food fair">
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">${data.eventos[i].name}</h5>
+                <p class="card-text" style="overflow:auto; height:8vh">${data.eventos[i].description}</p>
+              </div>
+              <div class="bottom-card"> 
+                <span>Price: $${data.eventos[i].price}</span>
+                <a href="./pages/details.html" class="btn btn-primary">Go somewhere</a>
+              </div>
+          </div>
+        `;
         }
     } 
     settingCard.innerHTML = card;
